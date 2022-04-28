@@ -40,8 +40,10 @@ export default {
     copy(){
       document.execCommand('selectAll',false,null);
     },
-    noSelect(){
-
+    noImg(){
+      document.addEventListener('trix-file-accept', function (e) {
+        e.preventDefault();
+      });
     }
   },
   computed: {
@@ -50,6 +52,7 @@ export default {
     },
   },
   mounted() {
+    this.noImg();
     this.trixStyle();
     this.trixChange();
   },
